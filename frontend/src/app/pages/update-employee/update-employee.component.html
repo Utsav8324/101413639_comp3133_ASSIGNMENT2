@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="title">Update Employee</h2>
+
+  <form (ngSubmit)="updateEmployee()" class="form">
+    <label>
+      Name:
+      <input type="text" [(ngModel)]="employee.name" name="name" required />
+    </label>
+
+    <label>
+      Email:
+      <input type="email" [(ngModel)]="employee.email" name="email" required />
+    </label>
+
+    <label>
+      Phone:
+      <input type="text" [(ngModel)]="employee.phone" name="phone" />
+    </label>
+
+    <label>
+      Department:
+      <input type="text" [(ngModel)]="employee.department" name="department" />
+    </label>
+
+    <label>
+      Position:
+      <input type="text" [(ngModel)]="employee.position" name="position" />
+    </label>
+
+    <button type="submit" class="btn-primary">Update</button>
+    <button type="button" (click)="router.navigate(['/employees'])" class="btn-secondary">
+      Cancel
+    </button>
+  </form>
+</div>

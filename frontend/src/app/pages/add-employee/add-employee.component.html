@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Add New Employee</h2>
+  
+    <form (ngSubmit)="addEmployee()" class="form-box">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="name" name="name" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" [(ngModel)]="phone" name="phone" />
+      </div>
+  
+      <div class="form-group">
+        <label>Department</label>
+        <input type="text" [(ngModel)]="department" name="department" />
+      </div>
+  
+      <div class="form-group">
+        <label>Position</label>
+        <input type="text" [(ngModel)]="position" name="position" />
+      </div>
+  
+      <div *ngIf="error" class="error">{{ error }}</div>
+  
+      <div class="btn-group">
+        <button type="submit" class="btn btn-add">Add</button>
+        <button type="button" class="btn btn-cancel" (click)="router.navigate(['/employees'])">Cancel</button>
+      </div>
+    </form>
+  </div>

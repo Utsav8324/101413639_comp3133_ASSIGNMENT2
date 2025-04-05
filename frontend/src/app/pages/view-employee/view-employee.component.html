@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Employee Details</h2>
+  
+    <div class="details-box" *ngIf="employee">
+      <p><strong>Name:</strong> {{ employee.name }}</p>
+      <p><strong>Email:</strong> {{ employee.email }}</p>
+      <p><strong>Phone:</strong> {{ employee.phone }}</p>
+      <p><strong>Department:</strong> {{ employee.department }}</p>
+      <p><strong>Position:</strong> {{ employee.position }}</p>
+    </div>
+  
+    <div class="actions">
+      <button class="btn btn-back" (click)="router.navigate(['/employees'])">Back</button>
+    </div>
+  </div>

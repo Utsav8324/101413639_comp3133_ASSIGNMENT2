@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Employees</h2>
+  
+    <div *ngIf="error" class="error">{{ error }}</div>
+  
+    <div class="search-row">
+      <input type="text" [(ngModel)]="searchDepartment" (input)="filterEmployees()" placeholder="Search by department" />
+      <input type="text" [(ngModel)]="searchPosition" (input)="filterEmployees()" placeholder="Search by position" />
+      <button class="btn add" [routerLink]="['/add']">Add New Employee</button>
+    </div>
+  
+    <table *ngIf="filteredEmployees.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Position</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of filteredEmployees">
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.department }}</td>
+          <td>{{ emp.position }}</td>
+          <td>
+            <button class="btn view" [routerLink]="['/view', emp.id]">View</button>
+            <button class="btn edit" [routerLink]="['/edit', emp.id]">Edit</button>
+            <button class="btn delete" (click)="deleteEmployee(emp.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!filteredEmployees.length && !error">No employees found.</div>
+  </div>
